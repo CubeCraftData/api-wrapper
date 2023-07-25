@@ -17,6 +17,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "bugs": {
+    "url": "https://github.com/CubeCraftData/api-wrapper/issues"
+  },
   "devDependencies": {
     "@types/eventsource": "^1.1.11",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
