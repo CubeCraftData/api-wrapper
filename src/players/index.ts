@@ -11,7 +11,9 @@ export type BasePlayer = {
 };
 
 export type ProfileLeaderboard = BaseLeaderboard & {
+    /** @example 3 */
     position: number;
+    /** @example 1000 **/
     points: number;
 };
 
@@ -19,14 +21,20 @@ export type ProfilePlayer = BasePlayer & { leaderboards: ProfileLeaderboard[] };
 
 export default class Players extends Wrapper {
     public getAll() {
-        return this.instance.get<ProfilePlayer[]>("/bedrock/players").then(r => r.data);
+        return this.instance
+            .get<ProfilePlayer[]>("/bedrock/players")
+            .then(r => r.data);
     }
 
     public getNames() {
-        return this.instance.get<string[]>("/bedrock/players/names").then(r => r.data);
+        return this.instance
+            .get<string[]>("/bedrock/players/names")
+            .then(r => r.data);
     }
 
     public getByName(name: string) {
-        return this.instance.get<ProfilePlayer>(`/bedrock/players/names/${name}`).then(r => r.data);
+        return this.instance
+            .get<ProfilePlayer>(`/bedrock/players/names/${name}`)
+            .then(r => r.data);
     }
 }

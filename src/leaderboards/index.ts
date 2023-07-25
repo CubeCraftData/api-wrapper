@@ -4,7 +4,7 @@ import Wrapper from "../wrapper";
 
 export type BaseLeaderboard = {
     /** @example skywars-solo */
-    name: string
+    name: string;
 };
 
 export type Leaderboard = BaseLeaderboard & {
@@ -19,14 +19,20 @@ export type LeaderboardPlayer = BasePlayer & { points: number };
 
 export default class Leaderboards extends Wrapper {
     public getAll() {
-        return this.instance.get<Leaderboard[]>("/bedrock/leaderboards").then(r => r.data);
+        return this.instance
+            .get<Leaderboard[]>("/bedrock/leaderboards")
+            .then(r => r.data);
     }
 
     public getNames() {
-        return this.instance.get<string[]>("/bedrock/leaderboards/names").then(r => r.data);
+        return this.instance
+            .get<string[]>("/bedrock/leaderboards/names")
+            .then(r => r.data);
     }
 
     public getByName(name: string) {
-        return this.instance.get<Leaderboard>(`/bedrock/leaderboards/names/${name}`).then(r => r.data);
+        return this.instance
+            .get<Leaderboard>(`/bedrock/leaderboards/names/${name}`)
+            .then(r => r.data);
     }
 }

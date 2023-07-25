@@ -21,7 +21,7 @@ export default class API {
     public constructor(timeout = 10 * 1000) {
         const axiosInstance = axios.create({
             baseURL: "https://api.cc-data.ru",
-            timeout
+            timeout,
         });
 
         this.leaderboards = new Leaderboards(axiosInstance);

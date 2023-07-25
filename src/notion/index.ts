@@ -4,9 +4,13 @@ import EventSource from "eventsource";
 import Wrapper from "../wrapper";
 
 export type NotionUpdateEvent = {
+    /** @example aac5646a-ef93-4964-9641-85bfc9f5150c */
     id: string;
+    /** @example Summer Event 2023 */
     title: string;
+    /** @example In Progress */
     category: string;
+    /** @example https://cubecraft.notion.site/e86c96a3ee78465d8e5c24c22489c094?p=aac5646aef934964964185bfc9f5150c */
     url: string;
 };
 
