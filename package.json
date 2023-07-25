@@ -1,6 +1,7 @@
 {
   "name": "cc-data-api-wrapper",
   "version": "1.0.0",
+  "main": "src/index.ts",
   "description": "CubeCraft Data API Wrapper",
   "author": "CubeCraft Data",
   "license": "MIT",
@@ -18,5 +19,8 @@
     "eslint": "^8.45.0",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
   }
 }
