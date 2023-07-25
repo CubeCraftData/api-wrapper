@@ -17,7 +17,11 @@ export type NotionUpdateEvent = {
 export default class Notion extends Wrapper {
     private eventSource?: EventSource;
 
-    listen(reconnectOnDisconnect = false) {
+    listen(
+        onUpdate?: (event: NotionUpdateEvent) => void,
+        onError?: (event: MessageEvent) => void,
+        reconnectOnDisconnect = false,
+    ) {
         if (this.eventSource !== undefined) return this.eventSource;
 
         const url = new URL(
@@ -33,6 +37,16 @@ export default class Notion extends Wrapper {
         } else {
             this.eventSource = new EventSource(url);
         }
+
+        if (onUpdate !== undefined)
+            this.eventSource.addEventListener("update", (event) => {
+                const data: NotionUpdateEvent = JSON.parse(event.data);
+
+                onUpdate(data);
+            });
+
+        if (onError !== undefined)
+            this.eventSource.onerror = onError;
 
         return this.eventSource;
     }
