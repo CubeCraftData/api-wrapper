@@ -9,6 +9,6 @@ export type GameXp = {
 
 export default class Xp extends Wrapper {
     getAll() {
-        return this.instance.get<Xp[]>("/bedrock/xp").then(r => r.data);
+        return this.instance.get<GameXp[]>("/bedrock/xp").then(r => r.data);
     }
 }
