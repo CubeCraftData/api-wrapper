@@ -1,9 +1,13 @@
 {
   "name": "cc-data-api-wrapper",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "description": "CubeCraft Data API Wrapper",
   "author": "CubeCraft Data",
+  "scripts": {
+    "build": "tsc"
+  },
   "license": "MIT",
   "homepage": "https://github.com/CubeCraftData/api-wrapper",
   "repository": {
