@@ -1,0 +1,22 @@
+{
+  "name": "cc-data-api-wrapper",
+  "version": "1.0.0",
+  "description": "CubeCraft Data API Wrapper",
+  "author": "CubeCraft Data",
+  "license": "MIT",
+  "homepage": "https://github.com/CubeCraftData/api-wrapper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CubeCraftData/api-wrapper.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  }
+}
