@@ -5,6 +5,7 @@ import Players from "./players";
 import Marketplace from "./marketplace";
 import Status from "./status";
 import Xp from "./xp";
+import Notion from "./notion";
 
 export * from "./leaderboards";
 export * from "./players";
@@ -15,6 +16,7 @@ export default class API {
     public readonly marketplace: Marketplace;
     public readonly status: Status;
     public readonly xp: Xp;
+    public readonly notion: Notion;
 
     public constructor(timeout = 10 * 1000) {
         const axiosInstance = axios.create({
@@ -27,5 +29,6 @@ export default class API {
         this.marketplace = new Marketplace(axiosInstance);
         this.status = new Status(axiosInstance);
         this.xp = new Xp(axiosInstance);
+        this.notion = new Notion(axiosInstance);
     }
 }
