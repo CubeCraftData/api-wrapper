@@ -32,7 +32,7 @@ export default class Leaderboards extends Wrapper {
 
     public getByName(name: string) {
         return this.instance
-            .get<Leaderboard>(`/bedrock/leaderboards/names/${name}`)
+            .get<Leaderboard>(`/bedrock/leaderboards/name/${name}`)
             .then(r => r.data);
     }
 }

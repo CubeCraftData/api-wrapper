@@ -30,7 +30,7 @@ export default class Marketplace extends Wrapper {
 
     public getBySearchName(searchName: string) {
         return this.instance
-            .get<MarketplaceItem>(`/bedrock/marketplace/names/${searchName}`)
+            .get<MarketplaceItem>(`/bedrock/marketplace/name/${searchName}`)
             .then(r => r.data);
     }
 }

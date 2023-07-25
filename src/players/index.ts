@@ -34,7 +34,7 @@ export default class Players extends Wrapper {
 
     public getByName(name: string) {
         return this.instance
-            .get<ProfilePlayer>(`/bedrock/players/names/${name}`)
+            .get<ProfilePlayer>(`/bedrock/players/name/${name}`)
             .then(r => r.data);
     }
 }
