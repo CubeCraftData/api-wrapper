@@ -7,7 +7,7 @@
 ## Example
 
 ```js
-const API = require("cc-data-api-wrapper");
+const API = require("cc-data-api-wrapper").default;
 
 const timeout = 10 * 1000; // 10 seconds
 
