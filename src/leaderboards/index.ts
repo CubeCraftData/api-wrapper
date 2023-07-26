@@ -27,7 +27,7 @@ export default class Leaderboards extends Wrapper {
     /**
      * ONLY FOR INTERNAL USE
      */
-    public updateAll(leaderboards: Leaderboards[]) {
+    public updateAll(leaderboards: Leaderboard[]) {
         return this.instance
             .post("/bedrock/leaderboards", leaderboards)
             .then(() => {});
