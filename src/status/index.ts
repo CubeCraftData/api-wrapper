@@ -14,6 +14,9 @@ export default class Status extends Wrapper {
             .then(r => r.data);
     }
 
+    /**
+     * ONLY FOR INTERNAL USE
+     */
     updateAll(statuses: GameStatus[]) {
         return this.instance.post("/bedrock/status", statuses).then(() => {});
     }
