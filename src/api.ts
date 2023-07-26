@@ -15,9 +15,12 @@ export default class API {
     public readonly xp: Xp;
     public readonly notion: Notion;
 
-    public constructor(timeout = 10 * 1000) {
+    public constructor(timeout = 10 * 1000, apiKey = "") {
         const axiosInstance = axios.create({
             baseURL: "https://api.cc-data.ru",
+            params: {
+                "access_token": apiKey
+            },
             timeout,
         });
 
