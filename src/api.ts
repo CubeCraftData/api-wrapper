@@ -8,6 +8,8 @@ import Xp from "./xp";
 import Notion from "./notion";
 
 export default class API {
+    private static readonly tokenParam = "access_token"
+
     public readonly axiosInstance: AxiosInstance;
 
     public readonly leaderboards: Leaderboards;
@@ -21,7 +23,7 @@ export default class API {
         this.axiosInstance = axios.create({
             baseURL: "https://api.cc-data.ru",
             params: {
-                "access_token": apiKey
+                [API.tokenParam]: apiKey
             },
             timeout,
         });
@@ -32,5 +34,9 @@ export default class API {
         this.status = new Status(this.axiosInstance);
         this.xp = new Xp(this.axiosInstance);
         this.notion = new Notion(this.axiosInstance);
+    }
+
+    public setAPIKey(apiKey: string) {
+        this.axiosInstance.defaults.params[API.tokenParam] = apiKey;
     }
 }
