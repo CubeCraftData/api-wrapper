@@ -14,6 +14,18 @@ export default class Status extends Wrapper {
             .then(r => r.data);
     }
 
+    getNames() {
+        return this.instance
+            .get<string[]>("/bedrock/status/names")
+            .then(r => r.data);
+    }
+
+    getByName(name: string) {
+        return this.instance
+            .get<GameStatus>(`/bedrock/status/name/${name}`)
+            .then(r => r.data);
+    }
+
     /**
      * ONLY FOR INTERNAL USE
      */
