@@ -22,6 +22,12 @@ export type MarketplaceItem = {
 };
 
 export default class Marketplace extends Wrapper {
+    public getAll() {
+        return this.instance
+            .get<MarketplaceItem[]>("/bedrock/marketplace")
+            .then(r => r.data);
+    }
+
     public getNames() {
         return this.instance
             .get<string[]>("/bedrock/marketplace/names")
