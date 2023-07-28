@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
 import Leaderboards from "./leaderboards";
 import Players from "./players";
@@ -8,6 +8,8 @@ import Xp from "./xp";
 import Notion from "./notion";
 
 export default class API {
+    public readonly axiosInstance: AxiosInstance;
+
     public readonly leaderboards: Leaderboards;
     public readonly players: Players;
     public readonly marketplace: Marketplace;
@@ -16,7 +18,7 @@ export default class API {
     public readonly notion: Notion;
 
     public constructor(timeout = 10 * 1000, apiKey = "") {
-        const axiosInstance = axios.create({
+        this.axiosInstance = axios.create({
             baseURL: "https://api.cc-data.ru",
             params: {
                 "access_token": apiKey
@@ -24,11 +26,11 @@ export default class API {
             timeout,
         });
 
-        this.leaderboards = new Leaderboards(axiosInstance);
-        this.players = new Players(axiosInstance);
-        this.marketplace = new Marketplace(axiosInstance);
-        this.status = new Status(axiosInstance);
-        this.xp = new Xp(axiosInstance);
-        this.notion = new Notion(axiosInstance);
+        this.leaderboards = new Leaderboards(this.axiosInstance);
+        this.players = new Players(this.axiosInstance);
+        this.marketplace = new Marketplace(this.axiosInstance);
+        this.status = new Status(this.axiosInstance);
+        this.xp = new Xp(this.axiosInstance);
+        this.notion = new Notion(this.axiosInstance);
     }
 }
