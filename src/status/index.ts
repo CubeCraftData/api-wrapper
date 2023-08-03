@@ -5,6 +5,8 @@ export type GameStatus = {
     name: string;
     /** @example 10548 */
     value: number;
+    /** @example 1691000875657 */
+    lastUpdated: number;
 };
 
 export default class Status extends Wrapper {
@@ -29,7 +31,7 @@ export default class Status extends Wrapper {
     /**
      * ONLY FOR INTERNAL USE
      */
-    updateAll(statuses: GameStatus[]) {
+    updateAll(statuses: Omit<GameStatus, "lastUpdated">[]) {
         return this.instance.post("/bedrock/status", statuses).then(() => {});
     }
 }

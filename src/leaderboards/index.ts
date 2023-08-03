@@ -10,8 +10,8 @@ export type BaseLeaderboard = {
 export type Leaderboard = BaseLeaderboard & {
     /** @example https://cubecraftcdn.com/bedrock/game_icons/skywars.png */
     icon: string | null;
-    /** @example 2023-05-08T07:01:11.781Z */
-    lastUpdated: string;
+    /** @example 1691000875657 */
+    lastUpdated: number;
     players: LeaderboardPlayer[];
 };
 
@@ -27,7 +27,7 @@ export default class Leaderboards extends Wrapper {
     /**
      * ONLY FOR INTERNAL USE
      */
-    public updateAll(leaderboards: Leaderboard[]) {
+    public updateAll(leaderboards: Omit<Leaderboard, "lastUpdated">[]) {
         return this.instance
             .post("/bedrock/leaderboards", leaderboards)
             .then(() => {});
