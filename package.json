@@ -1,6 +1,6 @@
 {
   "name": "cc-data-api-wrapper",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "description": "CubeCraft Data API Wrapper",
